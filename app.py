@@ -201,14 +201,17 @@ with tabs[1]:
                 monthly_prices = p.resample("ME").last().dropna(how="all").ffill()
                 units = pd.Series(0.0, index=p.columns)
                 values = []
-                contribution = initial
                 first_prices = p.iloc[0]
                 units += (initial * pd.Series(norm)) / first_prices
                 for dt, row in monthly_prices.iterrows():
                     if dt > p.index[0]:
                         units += (monthly * pd.Series(norm)) / row
-                    values.append((dt, (units * row).sum()))
-                contribution_series = pd.Series(values, index=[x[0] for x in values])
+                    values.append((dt, float((units * row).sum())))
+                contribution_series = pd.Series(
+                    data=[value for _, value in values],
+                    index=[dt for dt, _ in values],
+                    dtype=float,
+                )
                 contribution_series = pd.concat([
                     pd.Series({p.index[0]: initial}),
                     contribution_series
