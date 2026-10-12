@@ -293,9 +293,24 @@ with tabs[2]:
             "Portfolio A": [sa["final"], sa["total_return"], sa["cagr"], sa["max_drawdown"]],
             "Portfolio B": [sb["final"], sb["total_return"], sb["cagr"], sb["max_drawdown"]],
         })
-        table.loc[0, ["Portfolio A", "Portfolio B"]] = table.loc[0, ["Portfolio A", "Portfolio B"]].map(lambda x: f"£{x:,.0f}")
-        table.loc[1:, ["Portfolio A", "Portfolio B"]] = table.loc[1:, ["Portfolio A", "Portfolio B"]].map(lambda x: f"{x:.2%}")
-        st.dataframe(table, use_container_width=True, hide_index=True)
+        
+        display_table = pd.DataFrame({
+            "Metric": table["Metric"],
+            "Portfolio A": [
+                f"£{sa['final']:,.0f}",
+                f"{sa['total_return']:.2%}",
+                f"{sa['cagr']:.2%}",
+                f"{sa['max_drawdown']:.2%}",
+            ],
+            "Portfolio B": [
+                f"£{sb['final']:,.0f}",
+                f"{sb['total_return']:.2%}",
+                f"{sb['cagr']:.2%}",
+                f"{sb['max_drawdown']:.2%}",
+            ],
+        })
+        st.dataframe(display_table, use_container_width=True, hide_index=True)
+
 
 with tabs[3]:
     st.subheader("🔮 Future Scenario Lab")
