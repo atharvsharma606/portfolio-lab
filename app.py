@@ -14,7 +14,7 @@ st.markdown("""
 :root { --ink:#17233b; --muted:#66758d; --teal:#0e9f9a; --mint:#dff7f2; --blue:#4768e5; --line:#e5eaf2; }
 html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
 .stApp { background: linear-gradient(180deg, #f5f8fc 0%, #fbfcff 42%, #ffffff 100%); color:var(--ink); }
-.block-container { max-width: 1400px; padding-top: 1.5rem; padding-bottom: 3rem; }
+.block-container { max-width: 1400px; padding-top: 4.5rem; padding-bottom: 3rem; }
 [data-testid="stHeader"] { background: rgba(245,248,252,.82); }
 [data-testid="stSidebar"] { background: linear-gradient(180deg,#111d35 0%,#1a2c4b 100%); border-right: 1px solid #243653; }
 [data-testid="stSidebar"] * { color:#eef4ff !important; }
@@ -42,7 +42,7 @@ h2 { margin-top:.7rem !important; }
 [data-testid="stAlert"] { border-radius:13px; }
 hr { border-color:var(--line); }
 small, .stCaption { color:var(--muted); }
-@media (max-width: 700px) { .block-container { padding:1rem .8rem 2rem .8rem; } .hero { padding:1.35rem; border-radius:18px; } }
+@media (max-width: 700px) { .block-container { padding:4.5rem .8rem 2rem .8rem; } .hero { padding:1.35rem; border-radius:18px; } }
 </style>
 <div class="hero">
   <div class="hero-kicker">PERSONAL FINANCE • MARKET SIMULATOR</div>
